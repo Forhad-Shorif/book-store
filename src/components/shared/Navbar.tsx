@@ -20,6 +20,9 @@ const Navbar = () => {
                             <li><Link href="/books">Books</Link></li>
                             <li><Link href='/listed-books'>Listed Book</Link></li>
                             <li><Link href='/read-books'>Read Books</Link></li>
+                            <li>
+                                <Link href='allbooks'>All Books</Link>
+                            </li>
                         </ul>
                     </div>
                     <div className='flex gap-2 items-center'>
@@ -36,6 +39,9 @@ const Navbar = () => {
                         <li><Link href='/listed-books'>Listed Book</Link></li>
                         <li>
                             <Link href='/read-books'>Read Books</Link>
+                        </li>
+                        <li>
+                            <Link href= '/allbooks'>All Books</Link>
                         </li>
                     </ul>
                 </div>

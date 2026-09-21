@@ -4,7 +4,6 @@ import { useContext } from 'react';
 import { BooksContext } from '@/context/BooksContext';
 import { toast } from 'react-toastify';
 
-
 const Readbutton = ({ book }: {book: IBook}) => {
     const {readBooks,setReadBooks} = useContext(BooksContext)
 
@@ -13,11 +12,8 @@ const Readbutton = ({ book }: {book: IBook}) => {
         if(!Data){
               setReadBooks([...readBooks,book])
         toast.success(`You have read ${book.bookName}`)
-        }
-      
+        } 
     }
-
-
     return (
         <button onClick={()=> handleReadBook()} className="btn btn-outline border-slate-300 text-slate-700 hover:bg-slate-900 hover:text-white px-7 rounded-xl font-semibold transition-all duration-300">
             Read

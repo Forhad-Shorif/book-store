@@ -5,7 +5,7 @@ import BannerImage from '@/assets/hero_img.jpg';
 const Banner = () => {
     return (
         <section className="relative overflow-hidden py-12 md:py-20">
-            {/* Background Decorative Elements */}
+            {/* Banner bg side style */}
             <div className="absolute top-1/2 left-1/2 -z-10 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/20 blur-3xl" />
             
             <div className="container mx-auto px-4">
@@ -45,10 +45,10 @@ const Banner = () => {
 
                         {/* Image Section */}
                         <div className="relative flex justify-center lg:justify-end">
-                            {/* Decorative Glow behind image */}
+                            {/* image style */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-teal-400 opacity-20 blur-2xl rounded-2xl" />
                             
-                            {/* Image Container with floating animation effect */}
+                            {/* image design */}
                             <div className="relative rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl transform transition-transform duration-500 hover:-translate-y-2 max-w-md w-full">
                                 <Image 
                                     src={BannerImage} 

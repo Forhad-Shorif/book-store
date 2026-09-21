@@ -5,7 +5,7 @@ import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 
-// Localhost এবং Vercel দুই জায়গার জন্যই ১০০% সুরক্ষিত ও দ্রুততম উপায়
+// Localhost and versel tecle
 const getBooks = async (): Promise<IBook[]> => {
     try {
         const filePath = path.join(process.cwd(), 'public', 'booksData.json');
@@ -24,7 +24,7 @@ const Books = async () => {
     return (
         <section className="container mx-auto my-16 px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {booksData.map((book: IBook) => (
+                {booksData.slice(0,9).map((book: IBook) => (
                     <div
                         key={book.bookId}
                         className="group flex flex-col bg-white rounded-3xl border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1.5"

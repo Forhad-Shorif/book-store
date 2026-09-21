@@ -4,7 +4,7 @@ import { IBook } from '@/booktypes/types';
 
 const getBooks = async () => {
     try {
-        // process.env না পেলে ডিফল্ট হিসেবে http://localhost:3000 ব্যবহার করবে
+        // process ar bikolpo
         const baseUrl = process.env.NEXT_PUBLIC_SERVER_BASE_URL || 'http://localhost:3000';
         
         const res = await fetch(`${baseUrl}/booksData.json`);
