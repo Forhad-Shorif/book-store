@@ -3,12 +3,14 @@ import BookCards from '@/components/shared/BookCards';
 import { IBook } from '@/booktypes/types';
 
 const getBooks = async () => {
- try {
-        // Localhost বা base URL ছাড়াই সরাসরি /booksData.json ব্যবহার করুন
-        const res = await fetch('/booksData.json');
+    try {
+        // process.env না পেলে ডিফল্ট হিসেবে http://localhost:3000 ব্যবহার করবে
+        const baseUrl = process.env.NEXT_PUBLIC_SERVER_BASE_URL || 'http://localhost:3000';
         
+        const res = await fetch(`${baseUrl}/booksData.json`);
+
         if (!res.ok) {
-            throw new Error('Failed to fetch books data');
+            throw new Error(`Failed to fetch: ${res.status}`);
         }
 
         const data = await res.json();
