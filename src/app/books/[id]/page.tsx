@@ -28,8 +28,8 @@ const getBooks = async (): Promise<IBook[]> => {
 const page = async ({ params }: Booktype) => {
   const { id } = await params;
   const bookdata = await getBooks();
-  const book = bookdata.find((b: IBook) => String(b.bookId) === String(id)) as IBook;
-  // const book = bookdata.find((book)=> book.bookId === Number(id)) as  IBook;
+  // const book = bookdata.find((b: IBook) => String(b.bookId) === String(id)) as IBook;
+  const book = bookdata.find((book)=> book.bookId === Number(id)) as  IBook;
 
   if (!book) {
     return (
