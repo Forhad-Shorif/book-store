@@ -4,6 +4,8 @@ import Readbutton from '@/components/bookdetails/ReadButton'
 import Image from 'next/image';
 import WishListButton from '@/components/bookdetails/WishlistButton';
 import React from 'react';
+import fs from 'fs';
+import path from 'path';
 
 interface Booktype {
   params: Promise<{
@@ -11,21 +13,14 @@ interface Booktype {
   }>;
 }
 
-const getBooks = async () => {
-     try {
-        // process.env না পেলে ডিফল্ট হিসেবে http://localhost:3000 ব্যবহার করবে
-        const baseUrl = process.env.NEXT_PUBLIC_SERVER_BASE_URL || 'http://localhost:3000';
-        
-        const res = await fetch(`${baseUrl}/booksData.json`);
-
-        if (!res.ok) {
-            throw new Error(`Failed to fetch: ${res.status}`);
-        }
-
-        const data = await res.json();
+const getBooks = async (): Promise<IBook[]> => {
+    try {
+        const filePath = path.join(process.cwd(), 'public', 'booksData.json');
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        const data = JSON.parse(fileContents);
         return data;
     } catch (error) {
-        console.error("Error fetching books:", error);
+        console.error("Error reading books data:", error);
         return [];
     }
 };
