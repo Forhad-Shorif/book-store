@@ -1,7 +1,6 @@
 import React from 'react';
 import { IBook } from '@/booktypes/types';
 import Link from 'next/link';
-import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 import BookCards from '../shared/BookCards';

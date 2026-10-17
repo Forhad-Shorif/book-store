@@ -21,6 +21,7 @@ const ListedBooks = () => {
     }
     const sortedReadBooks = sortBooks(readBooks);
     const sortedWishlist = sortBooks(wishlist)
+    
 
     return (
         <div className="container mx-auto py-[20px] max-w-6xl px-4">
@@ -44,7 +45,7 @@ const ListedBooks = () => {
                 <div className="tab-content border-base-300 bg-base-100 p-4 md:p-8 mt-4">
                     {readBooks.length > 0 ? (
                         sortedReadBooks.map((book: IBook) => (
-                            <ListedBookCards key={book.bookId} books={book} />
+                            <ListedBookCards key={book.bookId} books={book} isRead={true} />
                         ))
                     ) : (
                         <p className="text-center py-10 text-gray-500">No read books found</p>
@@ -55,7 +56,7 @@ const ListedBooks = () => {
                 <div className="tab-content border-base-300 bg-base-100 p-4 md:p-8 mt-4">
                     {wishlist.length > 0 ? (
                         sortedWishlist.map((book: IBook) => (
-                            <ListedBookCards key={book.bookId} books={book} />
+                            <ListedBookCards key={book.bookId} books={book} isRead={false} />
                         ))
                     ) : (
                         <p className="text-center py-10 text-gray-500">No wishlist books found</p>

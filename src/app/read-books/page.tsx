@@ -24,7 +24,7 @@ const getPath = (x: number, y: number, width: number, height: number) => {
 };
 
 // Custom Triangle Bar Component
-const TriangleBar = (props: any) => {
+const TriangleBar = (props:any) => {
   const { x = 0, y = 0, width = 0, height = 0, index = 0, isActive } = props;
   const color = colors[index % colors.length];
 

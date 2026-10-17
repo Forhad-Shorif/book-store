@@ -1,9 +1,8 @@
 import { IBook } from '@/booktypes/types';
 import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import UnlistedBtn from '../bookdetails/UnlistedBtn';
 
-const ListedBookCards = ({ books }: { books: IBook }) => {
+const ListedBookCards = ({ books, isRead }: { books:IBook; isRead: boolean }) => {
     return (
         <div className="flex flex-col md:flex-row bg-base-100 border border-base-200 rounded-3xl p-6 mb-6 shadow-sm hover:shadow-md transition-all duration-300 gap-6 items-center">
             <div className="w-full md:w-64 h-60 bg-base-200/70 rounded-2xl flex-shrink-0 flex items-center justify-center p-4">
@@ -66,11 +65,8 @@ const ListedBookCards = ({ books }: { books: IBook }) => {
                         </span>
                     </div>
 
-                    <Link href={`/books/${books.bookId}`}>
-                        <button className="btn btn-success bg-emerald-500 hover:bg-emerald-600 text-white rounded-full px-6 font-semibold border-0 text-sm">
-                            View Details
-                        </button>
-                    </Link>
+                  <UnlistedBtn isRead={isRead} books = {books}/>
+                    
                 </div>
             </div>
 

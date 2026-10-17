@@ -5,6 +5,7 @@ import WishListButton from '@/components/bookdetails/WishlistButton';
 import React from 'react';
 import fs from 'fs';
 import path from 'path';
+import Link from 'next/link';
 
 interface Booktype {
   params: Promise<{
@@ -28,7 +29,7 @@ const page = async ({ params }: Booktype) => {
   const { id } = await params;
   const bookdata = await getBooks();
   
-  // String কাস্টিং ব্যবহার করা সবচেয়ে নিরাপদ
+ 
   const book = bookdata.find((b: IBook) => String(b.bookId) === String(id));
 
   if (!book) {
@@ -131,7 +132,9 @@ const page = async ({ params }: Booktype) => {
             <Readbutton book={book} />
             <WishListButton book={book} />
           </div>
-
+           <Link href="/books">
+           {"<-- Back to Books"}
+           </Link>
         </div>
 
       </div>
@@ -140,3 +143,4 @@ const page = async ({ params }: Booktype) => {
 };
 
 export default page;
+ 
